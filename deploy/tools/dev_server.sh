@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+export FLASK_APP=segmenter
+export FLASK_ENV=development
+export FLASK_DEBUG=1
+
+python3 wsgi.py

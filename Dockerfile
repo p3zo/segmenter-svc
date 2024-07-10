@@ -18,10 +18,8 @@ SHELL ["/bin/bash", "-c"]
 
 ENV APP_DIR=/opt/segmenter-svc
 
-COPY requirements.txt $APP_DIR/requirements.txt
+COPY app/ $APP_DIR/
 COPY aws_lambda $APP_DIR/aws_lambda/
-COPY pyproject.toml $APP_DIR/pyproject.toml
-COPY segmenter $APP_DIR/segmenter/
 
 WORKDIR $APP_DIR
 

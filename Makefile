@@ -25,9 +25,17 @@ dev:
 	  -f docker-compose.dev.yml up -d && \
 	  docker compose logs --follow
 
+dev_server:
+	@echo "Starting app server in dev mode:"
+	docker compose --profile dev exec app ./deploy/tools/dev_server
+
 prod:
 	@echo "Starting containers in prod mode:"
 	docker compose up -d
+
+prod_server: prod
+	@echo "Starting app server in prod mode:"
+	docker compose --profile prod exec app ./deploy/tools/server
 
 shell:
 	@echo "Getting a shell inside the container:"

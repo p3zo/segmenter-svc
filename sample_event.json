@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "us-east-1",
+      "eventTime": "2024-07-09T19:59:02.102Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "ADRR4CE2OTQI"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "67.185.193.203"
+      },
+      "responseElements": {
+        "x-amz-request-id": "TJ5W1FF0ECETCA5N",
+        "x-amz-id-2": "yXwrRKyeEAa5VEV/U0s0Enh9jKZvTsgolNgBPtFzcsNOuz1D5gzF1z7jWeRNJIGy++4eh1ph4n/L77kWX4kQgR1snlVVE05Z"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "e7e3cf4e-fb99-4eeb-9835-958dc364fe16",
+        "bucket": {
+          "name": "p3zo-segmenter",
+          "ownerIdentity": {
+            "principalId": "ADRR4CE2OTQI"
+          },
+          "arn": "arn:aws:s3:::p3zo-segmenter"
+        },
+        "object": {
+          "key": "tmp/3kb-png.png",
+          "size": 3104,
+          "eTag": "a1c6863d15c20f726c794171b89f0ff8",
+          "sequencer": "00668D9686118C3A2E"
+        }
+      }
+    }
+  ]
+}

@@ -5,3 +5,24 @@ services:
     expose:
       - "5000"
     entrypoint: ["sh", "-c", "sleep infinity"]
+
+  nginx:
+    restart: always
+    image: "nginx:latest"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certbot/www/:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/letsencrypt/:ro
+    depends_on:
+      - app
+
+  certbot:
+    image: "certbot/certbot:latest"
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+    depends_on:
+      - nginx

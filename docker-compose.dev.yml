@@ -1,4 +1,4 @@
 services:
   app:
     volumes:
-      - ./app:/opt/segmenter
+      - .:/opt/segmenter-svc

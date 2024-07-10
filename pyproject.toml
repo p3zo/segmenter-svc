@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "segmenter"
+dynamic = ["version"]
+description = "API for music structure segmentation"
+readme = "README.md"
+authors = [
+    { name = "p3zo", email = "p3zo@users.noreply.github.com" },
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy==1.26.4",
+    "scipy==1.14.0",
+    "librosa==0.10.2.post1",
+    "scikit-learn==1.5.1",
+    "boto3==2.49.0"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["segmenter", "segmenter.*"]
+namespaces = false
+
+[project.optional-dependencies]
+dev = ["black", "flake8", "ipdb", "ipython", "isort"]
+test = []
+
+[project.urls]
+Homepage = "https://github.com/p3zo/segmenter-svc"
+Issues = "https://github.com/p3zo/segmenter-svc/issues"

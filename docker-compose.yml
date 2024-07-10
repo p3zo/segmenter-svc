@@ -1,42 +1,7 @@
 services:
   app:
     restart: always
-    build: ./app
+    build: .
     expose:
       - "5000"
     entrypoint: ["sh", "-c", "sleep infinity"]
-
-  nginx-dev:
-    profiles: [dev]
-    restart: always
-    image: "nginx:latest"
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/nginx.conf
-    depends_on:
-      - app
-
-  nginx:
-    profiles: [prod]
-    restart: always
-    image: "nginx:latest"
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./certbot/www/:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/letsencrypt/:ro
-    depends_on:
-      - app
-
-  certbot:
-    profiles: [prod]
-    image: "certbot/certbot:latest"
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-    depends_on:
-      - nginx
